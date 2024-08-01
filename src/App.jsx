@@ -1,9 +1,12 @@
 import "./App.css";
+import { Home } from "./pages/home";
 
 function App() {
   return (
     <>
-      <h1>MiniBlog</h1>
+      <div className="container">
+        <Home />
+      </div>
     </>
   );
 }
