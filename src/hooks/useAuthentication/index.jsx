@@ -53,11 +53,13 @@ export const useAuthentication = () => {
         systemErrorMessage = "A senha precisa conter pelo menos 6 caracteres.";
       }
 
-      if (error.message.includes("email-alreadt")) {
+      if (error.message.includes("email-already")) {
         systemErrorMessage = "E-mail já cadastrado.";
       }
 
       setError(systemErrorMessage);
+
+      setLoading(false);
     }
   };
 
