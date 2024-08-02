@@ -1,8 +1,34 @@
-# React + Vite
+# MiniBlog
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+MiniBlog é um projeto de blog simples onde os usuários podem criar, visualizar e deletar postagens. Para criar um post, é necessário estar logado, o que requer um sistema de cadastro e login.
 
-Currently, two official plugins are available:
+## Tecnologias Usadas
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+- **ReactJS**: Para o desenvolvimento do frontend.
+- **Firebase**: Para autenticação de usuários e armazenamento de dados.
+
+## Como Executar
+
+1. Clone o repositório:
+
+   ```bash
+   git clone https://github.com/wkauan/miniBlog
+   ```
+
+2. Instale as dependências:
+
+   ```bash
+   npm install
+   ```
+
+3. Configure o banco de dados:
+
+   ```bash
+   Configure um arquivo .env com as informações necessárias para se conectar ao banco de dados. Consulte o arquivo .env.example para saber quais informações são necessárias e como configurá-las no projeto.
+   ```
+
+4. Inicie o servidor:
+
+   ```bash
+   npm run dev
+   ```
