@@ -23,9 +23,7 @@ MiniBlog é um projeto de blog simples onde os usuários podem criar, visualizar
 
 3. Configure o banco de dados:
 
-   ```bash
    Configure um arquivo .env com as informações necessárias para se conectar ao banco de dados. Consulte o arquivo .env.example para saber quais informações são necessárias e como configurá-las no projeto.
-   ```
 
 4. Inicie o servidor:
 
