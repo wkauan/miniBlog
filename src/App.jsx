@@ -1,7 +1,7 @@
 // CSS
 import "./app.css";
 
-import { BrowserRouter, Routes, Route } from "react-router-dom";
+import { BrowserRouter, Routes, Route, Navigate } from "react-router-dom";
 import { onAuthStateChanged } from "firebase/auth";
 
 // hooks
@@ -16,6 +16,8 @@ import { Home } from "./pages/home";
 import { About } from "./pages/about";
 import { Login } from "./pages/login";
 import { Register } from "./pages/register";
+import { CreatePost } from "./pages/createPost";
+import { Dashboard } from "./pages/dashboard";
 
 // Components
 import { Footer } from "./components/footer";
@@ -46,8 +48,22 @@ export const App = () => {
             <Routes>
               <Route path="/" element={<Home />} />
               <Route path="/about" element={<About />} />
-              <Route path="/login" element={<Login />} />
-              <Route path="/register" element={<Register />} />
+              <Route
+                path="/login"
+                element={!user ? <Login /> : <Navigate to="/" />}
+              />
+              <Route
+                path="/register"
+                element={!user ? <Register /> : <Navigate to="/" />}
+              />
+              <Route
+                path="/posts/create"
+                element={user ? <CreatePost /> : <Navigate to="/login" />}
+              />
+              <Route
+                path="/dashboard"
+                element={user ? <Dashboard /> : <Navigate to="/login" />}
+              />
             </Routes>
           </div>
           <Footer />
