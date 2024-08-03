@@ -1,11 +1,12 @@
 import { db } from "../../firebase/config";
 
 import {
-  getAuth,
   createUserWithEmailAndPassword,
+  signInWithEmailAndPassword,
   updateProfile,
   signOut,
 } from "firebase/auth";
+import { auth } from "../../firebase/config";
 
 import { useState, useEffect } from "react";
 
@@ -16,13 +17,13 @@ export const useAuthentication = () => {
   // deal with memory leak
   const [cancelled, setCancelled] = useState(false);
 
-  const auth = getAuth();
-
   function checkIfIsCancelled() {
     if (cancelled) {
       return;
     }
   }
+
+  let systemErrorMessage = "Ocorreu um erro, por favor tente mais tarde.";
 
   const createUser = async (data) => {
     checkIfIsCancelled();
@@ -48,8 +49,6 @@ export const useAuthentication = () => {
       console.log(error.message);
       console.log(typeof error.message);
 
-      let systemErrorMessage = "Ocorreu um erro, por favor tente mais tarde.";
-
       if (error.message.includes("Password")) {
         systemErrorMessage = "A senha precisa conter pelo menos 6 caracteres.";
       }
@@ -71,6 +70,33 @@ export const useAuthentication = () => {
     signOut(auth);
   };
 
+  // login - sign in
+  const login = async (data) => {
+    checkIfIsCancelled();
+
+    setLoading(true);
+    setError(false);
+
+    try {
+      await signInWithEmailAndPassword(auth, data.email, data.password);
+    } catch (error) {
+      console.log(error.message);
+      console.log(typeof error.message);
+
+      if (error.message.includes("user-not-found")) {
+        systemErrorMessage = "Usuário não encontrado.";
+      }
+
+      if (error.message.includes("wrong-password")) {
+        systemErrorMessage = "Senha incorreta.";
+      }
+
+      setError(systemErrorMessage);
+
+      setLoading(false);
+    }
+  };
+
   useEffect(() => {
     return () => setCancelled(true);
   }, []);
@@ -81,5 +107,6 @@ export const useAuthentication = () => {
     error,
     loading,
     logout,
+    login,
   };
 };
