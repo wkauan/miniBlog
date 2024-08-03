@@ -1,4 +1,4 @@
-import "./App.css";
+import "./app.css";
 
 import { BrowserRouter, Routes, Route, Navigate } from "react-router-dom";
 import { onAuthStateChanged } from "firebase/auth";
