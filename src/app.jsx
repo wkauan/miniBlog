@@ -17,6 +17,7 @@ import { Login } from "./pages/login";
 import { Register } from "./pages/register";
 import { CreatePost } from "./pages/createPost";
 import { Dashboard } from "./pages/dashboard";
+import { Search } from "./pages/search";
 
 // Components
 import { Footer } from "./components/footer";
@@ -47,6 +48,7 @@ export const App = () => {
             <Routes>
               <Route path="/" element={<Home />} />
               <Route path="/about" element={<About />} />
+              <Route path="/search" element={<Search />} />
               <Route
                 path="/login"
                 element={!user ? <Login /> : <Navigate to="/" />}
