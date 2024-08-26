@@ -18,6 +18,8 @@
   width: 50%;
 }
 
+/* TODO: Colocar  o noposts como CSS Global */
+
 .noposts {
   text-align: center;
 }
