@@ -1,12 +1,12 @@
-.createPost {
+.create_post {
   text-align: center;
 }
 
-.createPost h2 {
+.create_post h2 {
   font-size: 2.2em;
 }
 
-.createPost p {
+.create_post p {
   color: #aaa;
   margin-bottom: 2em;
 }
