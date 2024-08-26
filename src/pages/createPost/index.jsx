@@ -37,14 +37,16 @@ export const CreatePost = () => {
 
     if (formError) return;
 
-    insertDocument({
+    const data = {
       title,
       image,
       body,
       tags: tagsArray,
       uid: user.uid,
       createdBy: user.displayName,
-    });
+    };
+
+    insertDocument(data);
 
     navigate("/");
   };
@@ -77,7 +79,16 @@ export const CreatePost = () => {
           />
         </label>
 
-        {/* TODO: Colocar preview da imagem */}
+        {image && (
+          <div>
+            <p className={styles.preview_title}>Preview da imagem atual:</p>
+            <img
+              src={image}
+              alt="Imagem para ser usada no post"
+              className={styles.preview_image}
+            />
+          </div>
+        )}
 
         <label>
           <span>Conteúdo:</span>
