@@ -23,6 +23,7 @@ import { Post } from "./pages/post";
 // Components
 import { Footer } from "./components/footer";
 import { Navbar } from "./components/navbar";
+import { NotFound } from "./pages/notFoud";
 
 export const App = () => {
   const [user, setUser] = useState(undefined);
@@ -51,6 +52,7 @@ export const App = () => {
               <Route path="/about" element={<About />} />
               <Route path="/search" element={<Search />} />
               <Route path="/posts/:id" element={<Post />} />
+              <Route path="*" element={<NotFound />} />
               <Route
                 path="/login"
                 element={!user ? <Login /> : <Navigate to="/" />}
