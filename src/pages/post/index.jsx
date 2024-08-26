@@ -13,6 +13,7 @@ export const Post = () => {
       {post && (
         <>
           <h1>{post.title}</h1>
+          {/* TODO: Criar CSS Global para o tamanho da imagem fixa */}
           <img src={post.image} alt={post.title} />
           <p>{post.body}</p>
           <h3>Este post trata sobre:</h3>

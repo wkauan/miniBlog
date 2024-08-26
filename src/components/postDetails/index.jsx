@@ -4,6 +4,7 @@ import styles from "./postDetails.module.css";
 export const PostDetail = ({ post }) => {
   return (
     <div className={styles.post_detail}>
+      {/* TODO: Criar CSS Global para o tamanho da imagem fixa */}
       <img src={post.image} alt={post.title} />
       <h2>{post.title}</h2>
       <p className={styles.createdBy}>{post.createdBy}</p>
