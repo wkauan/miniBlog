@@ -19,6 +19,7 @@ import { CreatePost } from "./pages/createPost";
 import { Dashboard } from "./pages/dashboard";
 import { Search } from "./pages/search";
 import { Post } from "./pages/post";
+import { EditPost } from "./pages/editPost";
 
 // Components
 import { Footer } from "./components/footer";
@@ -60,6 +61,10 @@ export const App = () => {
               <Route
                 path="/register"
                 element={!user ? <Register /> : <Navigate to="/" />}
+              />
+              <Route
+                path="/posts/edit/:id"
+                element={user ? <EditPost /> : <Navigate to="/login" />}
               />
               <Route
                 path="/posts/create"
