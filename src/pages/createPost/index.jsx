@@ -76,6 +76,9 @@ export const CreatePost = () => {
             value={image}
           />
         </label>
+
+        {/* TODO: Colocar preview da imagem */}
+
         <label>
           <span>Conteúdo:</span>
           <textarea
